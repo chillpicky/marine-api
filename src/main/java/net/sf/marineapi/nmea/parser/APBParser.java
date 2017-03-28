@@ -137,7 +137,11 @@ class APBParser extends SentenceParser implements APBSentence {
 	 */
 	@Override
 	public double getHeadingToDestionation() {
-		return getDoubleValue(HEADING_TO_DEST);
+		try {
+			return getDoubleValue(HEADING_TO_DEST);
+		} catch (DataNotAvailableException e) {
+			return 0;
+		}
 	}
 
 	/*
@@ -201,8 +205,12 @@ class APBParser extends SentenceParser implements APBSentence {
 	 * @see net.sf.marineapi.nmea.sentence.APBSentence#isHeadingTrue()
 	 */
 	@Override
-	public boolean isHeadingToDestinationTrue() {
-		return getCharValue(HEADING_TO_DEST_TYPE) == 'T';
+	public Boolean isHeadingToDestinationTrue() {
+		try {
+			return getCharValue(HEADING_TO_DEST_TYPE) == 'T';
+		} catch (DataNotAvailableException e) {
+			return null;
+		}
 	}
 
 	/*
@@ -211,8 +219,12 @@ class APBParser extends SentenceParser implements APBSentence {
 	 * @see net.sf.marineapi.nmea.sentence.APBSentence#isPerpendicularPassed()
 	 */
 	@Override
-	public boolean isPerpendicularPassed() {
-		return getCharValue(PERPENDICULAR_STATUS) == 'A';
+	public Boolean isPerpendicularPassed() {
+		try {
+			return getCharValue(PERPENDICULAR_STATUS) == 'A';
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	/*
