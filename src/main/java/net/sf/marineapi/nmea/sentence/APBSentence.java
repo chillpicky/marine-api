@@ -136,14 +136,14 @@ public interface APBSentence extends Sentence {
 	 * 
 	 * @return True if true heading, false for magnetic.
 	 */
-	boolean isHeadingToDestinationTrue();
+	Boolean isHeadingToDestinationTrue();
 
 	/**
 	 * Tells if vessel has passed perpendicular at waypoint.
 	 * 
 	 * @return True if passed, otherwise false.
 	 */
-	boolean isPerpendicularPassed();
+	Boolean isPerpendicularPassed();
 
 	/**
 	 * Sets the arrival circle enter status.
